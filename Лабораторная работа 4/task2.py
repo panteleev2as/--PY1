@@ -1,18 +1,17 @@
 def get_count_char(str_):
-    list_of_words = str_.split()
+    list_of_words = list(str_.lower())
     dict_ = {}
-    for word in list_of_words:
-        list_of_symbols = list(word.lower())
-        for symbol in list_of_symbols:
-            if symbol.isalpha():
-                if symbol in dict_:
-                    n = dict_.get(symbol)
-                    n += 1
-                    dict_[symbol] = n
-                else:
-                    dict_.setdefault(symbol, 1)
+    for symbol in list_of_words:
+        if symbol.isalpha():
+            if symbol in dict_:
+                n = dict_.get(symbol)
+                n += 1
+                dict_[symbol] = n
+            else:
+                dict_.setdefault(symbol, 1)
 
     return dict_
+
 
 main_str = """
     Данное предложение будет разбиваться на отдельные слова. 
